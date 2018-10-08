@@ -6,13 +6,39 @@
     min-width: 1000px;
 }
 
-.episode-event {
-    label {
+.episode-wrapper {
+  padding: 2px 5px;
+  background-color: #3174ad;
+  border-radius: 5px;
+  color: #fff;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  &.watched {
+    background-color: color($green, 400);
+  }
 
-        input {
-            //display: none
-        }
+  label {
+    display: flex;
+    align-items: center;
+    input {
+      cursor: pointer;
     }
+  }
+
+  input:checked ~ .episode-event {
+    background: red;
+  }
+
+  .episode-info {
+    color: white;
+    text-decoration: none;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 1rem;
+
+  }
 
     .episode {
         font-size: .7rem;

@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+body,
+html {
+    font-size: 14px;
+}
 body {
     background: color($blueGrey, 300);
 }
