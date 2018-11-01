@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeriesGenresTable extends Migration
+class CreateGenresSeriesPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateSeriesGenresTable extends Migration
      */
     public function up()
     {
-        Schema::create('series_genres', function (Blueprint $table) {
-            $table->integer('series_id')->unsigned();
-            $table->foreign('series_id')->references('id')->on('series');
-
+        Schema::create('genres_series', function (Blueprint $table) {
             $table->integer('genres_id')->unsigned();
             $table->foreign('genres_id')->references('id')->on('genres');
+
+            $table->integer('series_id')->unsigned();
+            $table->foreign('series_id')->references('id')->on('series');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateSeriesGenresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('series_genres');
+        Schema::dropIfExists('genres_series');
     }
 }

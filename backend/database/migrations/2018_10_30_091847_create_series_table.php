@@ -17,16 +17,16 @@ class CreateSeriesTable extends Migration
             $table->increments('id');
             $table->string('imdbId', 70)->unique();
             $table->string('slug', 70)->unique();
-
             $table->string('title', 70)->index();
             $table->string('summary', 1500);
             $table->string('country', 60);
             $table->string('network', 60);
             $table->integer('year');
             $table->integer('runtime');
-            $table->string('status', 70);
-            
+            $table->string('status')->nullable();
             $table->timestamps();
+
+            $table->foreign('status')->references('slug')->on('status');
         });
     }
 

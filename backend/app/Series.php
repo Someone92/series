@@ -14,6 +14,11 @@ class Series extends Model {
 
 	// Return all genres associated with the show
 	public function genre() {
-		return $this->belongsToMany('App\Genres', 'series_genres');
+		return $this->belongsToMany('App\Genres');
+	}
+
+	// Return status of the show
+	public function status() {
+		return $this->belongsTo('App\Status');
 	}
 }

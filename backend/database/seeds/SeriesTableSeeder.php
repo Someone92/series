@@ -25,7 +25,7 @@ class SeriesTableSeeder extends Seeder
                 'network' => 'HBO',
                 'year' => 2011,
                 'runtime' => 60,
-                'status' => 'Returning Series',
+                'status-slug' => 'returning-series',
 
                 // GENRES
                 'genres' => [
@@ -43,7 +43,7 @@ class SeriesTableSeeder extends Seeder
                 'network' => 'The CW',
                 'year' => 2005,
                 'runtime' => 60,
-                'status' => 'Returning Series',
+                'status-slug' => 'returning-series',
 
                 // GENRES
                 'genres' => [
@@ -62,9 +62,9 @@ class SeriesTableSeeder extends Seeder
                 Offworld, SG-1 might have new friends - or new foes - in Vala, a former Goa'uld host turned freedom-fighter; and Gerak, a Jaffa leader who vies with Teal'c for political control of the new Jaffa nation.",
                 'country' => 'United States',
                 'network' => 'Syfy',
-                'year' => 2005,
+                'year' => 1997,
                 'runtime' => 60,
-                'status' => 'Canceled/Ended',
+                'status-slug' => 'canceled-series',
 
                 // GENRES
                 'genres' => [
@@ -75,9 +75,10 @@ class SeriesTableSeeder extends Seeder
             ]
         ];
 
-
-
         foreach($seriesArray as $show) {
+
+            //$status = DB::table('status')->where('slug', 'status-slug')->get();
+            //$test = $status[0]->name;
 
             $series = Series::create([
                 'imdbId' => $show['imdbId'],
@@ -88,20 +89,13 @@ class SeriesTableSeeder extends Seeder
                 'network' => $show['network'],
                 'year' => $show['year'],
                 'runtime' => $show['runtime'],
-                'status' => $show['status']
+                'status' => $show['status-slug']
             ]);
 
             foreach($show['genres'] as $genre) {
                 // Seed series_genres
-
                 $full = DB::table('genres')->where('slug', $genre['slug'])->get();
-                
-
-                //$series->genres()->sync([3,4]); // array of role ids
-
                 $series->genre()->attach($full[0]->id);
-
-
             }
         }
 
