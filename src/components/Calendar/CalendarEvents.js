@@ -1,6 +1,5 @@
 export default [
     {
-        test: 'gege',
         title: 'The Simpsons',
         episode: 'S22E01',
         start: new Date('2018-10-01'),

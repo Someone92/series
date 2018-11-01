@@ -8,15 +8,15 @@
 
 .episode-wrapper {
   padding: 2px 5px;
-  background-color: #3174ad;
   border-radius: 5px;
   color: #fff;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
   display: flex;
+  background-color: color($blue, 500);
   &.watched {
-    background-color: color($green, 400);
+    background-color: color($green, 500);
   }
 
   label {
