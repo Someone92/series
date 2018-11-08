@@ -14,6 +14,6 @@ class Status extends Model {
 
 	// Return all shows with the specified status
 	public function series() {
-		return $this->belongsToMany('App\Series');
+		return $this->belongsToMany('App\Shows');
 	}
 }

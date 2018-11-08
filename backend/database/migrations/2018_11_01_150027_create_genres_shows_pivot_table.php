@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGenresSeriesPivotTable extends Migration
+class CreateGenresShowsPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateGenresSeriesPivotTable extends Migration
      */
     public function up()
     {
-        Schema::create('genres_series', function (Blueprint $table) {
+        Schema::create('genres_shows', function (Blueprint $table) {
             $table->integer('genres_id')->unsigned();
             $table->foreign('genres_id')->references('id')->on('genres');
 
-            $table->integer('series_id')->unsigned();
-            $table->foreign('series_id')->references('id')->on('series');
+            $table->integer('shows_id')->unsigned();
+            $table->foreign('shows_id')->references('id')->on('shows');
         });
     }
 

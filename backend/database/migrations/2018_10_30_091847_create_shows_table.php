@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeriesTable extends Migration
+class CreateShowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSeriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('series', function (Blueprint $table) {
+        Schema::create('shows', function (Blueprint $table) {
             $table->increments('id');
             $table->string('imdbId', 70)->unique();
             $table->string('slug', 70)->unique();
@@ -23,10 +23,10 @@ class CreateSeriesTable extends Migration
             $table->string('network', 60);
             $table->integer('year');
             $table->integer('runtime');
-            $table->string('status')->nullable();
+            $table->integer('status')->unsigned();
             $table->timestamps();
 
-            $table->foreign('status')->references('slug')->on('status');
+            $table->foreign('status')->references('id')->on('status');
         });
     }
 
@@ -37,6 +37,6 @@ class CreateSeriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('series');
+        Schema::dropIfExists('shows');
     }
 }

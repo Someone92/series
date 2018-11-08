@@ -1,9 +1,11 @@
 <?php
 
-use App\Series;
+use App\Shows;
+use App\Status;
+use App\Genres;
 use Illuminate\Database\Seeder;
 
-class SeriesTableSeeder extends Seeder
+class ShowsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +16,7 @@ class SeriesTableSeeder extends Seeder
     {
         // 3 Examples to test the database
         
-        $seriesArray = [
+        $showsArray = [
             [
                 'imdbId' => 'tt0944947',
                 'slug' => 'game-of-thrones',
@@ -75,12 +77,11 @@ class SeriesTableSeeder extends Seeder
             ]
         ];
 
-        foreach($seriesArray as $show) {
+        foreach($showsArray as $show) {
 
-            //$status = DB::table('status')->where('slug', 'status-slug')->get();
-            //$test = $status[0]->name;
+            $status = Status::where('slug', $show['status-slug'])->first();
 
-            $series = Series::create([
+            $shows = Shows::create([
                 'imdbId' => $show['imdbId'],
                 'slug' => $show['slug'],
                 'title' => $show['title'],
@@ -89,13 +90,15 @@ class SeriesTableSeeder extends Seeder
                 'network' => $show['network'],
                 'year' => $show['year'],
                 'runtime' => $show['runtime'],
-                'status' => $show['status-slug']
+                'status' => $status->id
             ]);
 
+            // Attach genres
             foreach($show['genres'] as $genre) {
-                // Seed series_genres
-                $full = DB::table('genres')->where('slug', $genre['slug'])->get();
-                $series->genre()->attach($full[0]->id);
+                // Seed shows_genres
+                $full = Genres::where('slug', $genre['slug'])->first();
+
+                $shows->genre()->attach($full->id);
             }
         }
 
