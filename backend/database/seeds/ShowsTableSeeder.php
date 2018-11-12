@@ -17,23 +17,21 @@ class ShowsTableSeeder extends Seeder {
         $data = json_decode($json);
 
         foreach($data->shows as $show) {
-            $status = Status::where('slug', $show->status)->first();
+            $status = Status::where('status_slug', $show->show_status)->first();
 
             $shows = Shows::create([
-                'imdbId'    => $show->imdbId,
-                'slug'      => $show->slug,
-                'title'     => $show->title,
-                'summary'   => $show->summary,
-                'country'   => $show->country,
-                'network'   => $show->network,
-                'year'      => $show->year,
-                'runtime'   => $show->runtime,
-                'status'    => $status->id
+                'show_title'     => $show->show_title,
+                'show_slug'      => $show->show_slug,
+                'show_imdb_id'   => $show->show_imdb_id,
+                'show_summary'   => $show->show_summary,
+                'show_country'   => $show->show_country,
+                'show_network'   => $show->show_network,
+                'show_year'      => $show->show_year,
+                'show_status'    => $status->id
             ]);
-
             // Attach genres
-            foreach($show->genres as $genre) {
-                $full = Genres::where('slug', $genre->slug)->first();
+            foreach($show->show_genres as $genre) {
+                $full = Genres::where('genre_slug', $genre->genre_slug)->first();
                 $shows->genre()->attach($full->id);
             }
         }

@@ -1,222 +1,314 @@
 {
     "genres": [
         {
-            "name": "Action",
-            "slug": "action"
+            "genre_name": "Action",
+            "genre_slug": "action"
         },
         {
-            "name": "Adventure",
-            "slug": "adventure"
+            "genre_name": "Adventure",
+            "genre_slug": "adventure"
         },
         {
-            "name": "Animation",
-            "slug": "animation"
+            "genre_name": "Animation",
+            "genre_slug": "animation"
         },
         {
-            "name": "Anime",
-            "slug": "anime"
+            "genre_name": "Anime",
+            "genre_slug": "anime"
         },
         {
-            "name": "Comedy",
-            "slug": "comedy"
+            "genre_name": "Comedy",
+            "genre_slug": "comedy"
         },
         {
-            "name": "Crime",
-            "slug": "crime"
+            "genre_name": "Crime",
+            "genre_slug": "crime"
         },
         {
-            "name": "Disaster",
-            "slug": "disaster"
+            "genre_name": "Disaster",
+            "genre_slug": "disaster"
         },
         {
-            "name": "Documentary",
-            "slug": "documentary"
+            "genre_name": "Documentary",
+            "genre_slug": "documentary"
         },
         {
-            "name": "Drama",
-            "slug": "drama"
+            "genre_name": "Drama",
+            "genre_slug": "drama"
         },
         {
-            "name": "Eastern",
-            "slug": "eastern"
+            "genre_name": "Eastern",
+            "genre_slug": "eastern"
         },
         {
-            "name": "Family",
-            "slug": "family"
+            "genre_name": "Family",
+            "genre_slug": "family"
         },
         {
-            "name": "Fan Film",
-            "slug": "fan-film"
+            "genre_name": "Fan Film",
+            "genre_slug": "fan-film"
         },
         {
-            "name": "Fantasy",
-            "slug": "fantasy"
+            "genre_name": "Fantasy",
+            "genre_slug": "fantasy"
         },
         {
-            "name": "Film Noir",
-            "slug": "film-noir"
+            "genre_name": "Film Noir",
+            "genre_slug": "film-noir"
         },
         {
-            "name": "History",
-            "slug": "history"
+            "genre_name": "History",
+            "genre_slug": "history"
         },
         {
-            "name": "Holiday",
-            "slug": "holiday"
+            "genre_name": "Holiday",
+            "genre_slug": "holiday"
         },
         {
-            "name": "Horror",
-            "slug": "horror"
+            "genre_name": "Horror",
+            "genre_slug": "horror"
         },
         {
-            "name": "Indie",
-            "slug": "indie"
+            "genre_name": "Indie",
+            "genre_slug": "indie"
         },
         {
-            "name": "Music",
-            "slug": "music"
+            "genre_name": "Music",
+            "genre_slug": "music"
         },
         {
-            "name": "Musical",
-            "slug": "musical"
+            "genre_name": "Musical",
+            "genre_slug": "musical"
         },
         {
-            "name": "Mystery",
-            "slug": "mystery"
+            "genre_name": "Mystery",
+            "genre_slug": "mystery"
         },
         {
-            "name": "None",
-            "slug": "none"
+            "genre_name": "None",
+            "genre_slug": "none"
         },
         {
-            "name": "Road",
-            "slug": "road"
+            "genre_name": "Road",
+            "genre_slug": "road"
         },
         {
-            "name": "Romance",
-            "slug": "romance"
+            "genre_name": "Romance",
+            "genre_slug": "romance"
         },
         {
-            "name": "Science Fiction",
-            "slug": "science-fiction"
+            "genre_name": "Science Fiction",
+            "genre_slug": "science-fiction"
         },
         {
-            "name": "Short",
-            "slug": "short"
+            "genre_name": "Short",
+            "genre_slug": "short"
         },
         {
-            "name": "Sports",
-            "slug": "sports"
+            "genre_name": "Sports",
+            "genre_slug": "sports"
         },
         {
-            "name": "Sporting Event",
-            "slug": "sporting-event"
+            "genre_name": "Sporting Event",
+            "genre_slug": "sporting-event"
         },
         {
-            "name": "Suspense",
-            "slug": "suspense"
+            "genre_name": "Suspense",
+            "genre_slug": "suspense"
         },
         {
-            "name": "Thriller",
-            "slug": "thriller"
+            "genre_name": "Thriller",
+            "genre_slug": "thriller"
         },
         {
-            "name": "Tv Movie",
-            "slug": "tv-movie"
+            "genre_name": "Tv Movie",
+            "genre_slug": "tv-movie"
         },
         {
-            "name": "War",
-            "slug": "war"
+            "genre_name": "War",
+            "genre_slug": "war"
         },
         {
-            "name": "Western",
-            "slug": "western"
+            "genre_name": "Western",
+            "genre_slug": "western"
         }
     ],
     "status": [
         {
-            "name": "New series",
-            "slug": "new-series"
+            "status_name": "New series",
+            "status_slug": "new-series"
         },
         {
-            "name": "Returning series",
-            "slug": "returning-series"
+            "status_name": "Returning series",
+            "status_slug": "returning-series"
         },
         {
-            "name": "Final season",
-            "slug": "final-season"
+            "status_name": "Final season",
+            "status_slug": "final-season"
         },
         {
-            "name": "Canceled series",
-            "slug": "canceled-series"
+            "status_name": "Canceled series",
+            "status_slug": "canceled-series"
         }
     ],
     "shows": [
         {
-            "imdbId": "tt0944947",
-            "slug": "game-of-thrones",
-            "title": "Game of Thrones",
-            "summary": "Seven noble families fight for control of the mythical land of Westeros. Political and sexual intrigue abound. The primary families are the Stark, Lannister, and Baratheon families. Robert Baratheon, King of Westeros, asks his old friend Eddard Stark to serve as his chief advisor. Eddard, suspecting that his predecessor had been murdered, accepts so that he can investigate further. It turns out more than one family is plotting to take the throne. The Queen's family, the Lannisters, may be hatching an incestuous plot to take control. Across the sea, the last surviving members of the previously deposed ruling family, the Targaryens, are also plotting a return to power. The conflict between these families and others, including the Greyjoys, the Tullys, the Arryns, and the Tyrells, leads to war. Meanwhile, in the north, an ancient evil awakens. Amidst war and the political confusion, a brotherhood of misfits, The Night's Watch, is all that stands between the realms of men and the horrors beyond.",
-            "country": "United States",
-            "network": "HBO",
-            "year": 2011,
-            "runtime": 60,
-            "status": "returning-series",
-            "genres": [
+            "show_imdb_id": "tt0944947",
+            "show_slug": "game-of-thrones",
+            "show_title": "Game of Thrones",
+            "show_summary": "Seven noble families fight for control of the mythical land of Westeros. Political and sexual intrigue abound. The primary families are the Stark, Lannister, and Baratheon families. Robert Baratheon, King of Westeros, asks his old friend Eddard Stark to serve as his chief advisor. Eddard, suspecting that his predecessor had been murdered, accepts so that he can investigate further. It turns out more than one family is plotting to take the throne. The Queen's family, the Lannisters, may be hatching an incestuous plot to take control. Across the sea, the last surviving members of the previously deposed ruling family, the Targaryens, are also plotting a return to power. The conflict between these families and others, including the Greyjoys, the Tullys, the Arryns, and the Tyrells, leads to war. Meanwhile, in the north, an ancient evil awakens. Amidst war and the political confusion, a brotherhood of misfits, The Night's Watch, is all that stands between the realms of men and the horrors beyond.",
+            "show_country": "United States",
+            "show_network": "HBO",
+            "show_year": 2011,
+            "show_runtime": 60,
+            "show_status": "returning-series",
+            "show_genres": [
                 {
-                    "slug": "action"
+                    "genre_slug": "action"
                 },
                 {
-                    "slug": "adventure"
+                    "genre_slug": "adventure"
                 },
                 {
-                    "slug": "drama"
+                    "genre_slug": "drama"
                 }
             ]
         },
         {
-            "imdbId": "tt0460681",
-            "slug": "supernatural",
-            "title": "Supernatural",
-            "summary": "Sam Winchester is a college student bound for law school, determined to escape his family's past - unlike his older brother, Dean. Ever since they were little their father has been consumed with an obsession to find the evil forces that murdered his beloved wife, and recruited his two young sons to help them. They have grown up as hunters of the supernatural. Sam escaped this way of life after high school, and now has a happy life with his girlfriend, Jessica, and a promising future career. Dean, however, stayed behind with his father to join him in his hunting. After Dean arrives for Sams help when their father goes missing, Sam must join his brother to find him. His one weekend trip to search for the missing John Winchester becomes an ongoing quest after a horrible tragedy ruins any thought of a happy life for Sam.                The two brothers, bound by tragedy and blood to their mission, travel across the country encountering terrifying and dangerous forces most believe to be nothing but superstition and folklore, such as the Lady in White, the Indian beast known as the Wendigo, Phantom Travelers who cause plane crashes, Bloody Mary, and many more.",
-            "country": "United States",
-            "network": "The CW",
-            "year": 2005,
-            "runtime": 60,
-            "status": "returning-series",
-            "genres": [
+            "show_imdb_id": "tt0460681",
+            "show_slug": "supernatural",
+            "show_title": "Supernatural",
+            "show_summary": "Sam Winchester is a college student bound for law school, determined to escape his family's past - unlike his older brother, Dean. Ever since they were little their father has been consumed with an obsession to find the evil forces that murdered his beloved wife, and recruited his two young sons to help them. They have grown up as hunters of the supernatural. Sam escaped this way of life after high school, and now has a happy life with his girlfriend, Jessica, and a promising future career. Dean, however, stayed behind with his father to join him in his hunting. After Dean arrives for Sams help when their father goes missing, Sam must join his brother to find him. His one weekend trip to search for the missing John Winchester becomes an ongoing quest after a horrible tragedy ruins any thought of a happy life for Sam.                The two brothers, bound by tragedy and blood to their mission, travel across the country encountering terrifying and dangerous forces most believe to be nothing but superstition and folklore, such as the Lady in White, the Indian beast known as the Wendigo, Phantom Travelers who cause plane crashes, Bloody Mary, and many more.",
+            "show_country": "United States",
+            "show_network": "The CW",
+            "show_year": 2005,
+            "show_runtime": 60,
+            "show_status": "returning-series",
+            "show_genres": [
                 {
-                    "slug": "drama"
+                    "genre_slug": "drama"
                 },
                 {
-                    "slug": "fantasy"
+                    "genre_slug": "fantasy"
                 },
                 {
-                    "slug": "horror"
+                    "genre_slug": "horror"
                 }
             ]
         },
         {
-            "imdbId": "tt0118480",
-            "slug": "stargate-sg1",
-            "title": "Stargate SG-1",
-            "summary": "Step through the Stargate with SG-1, a team of soldiers and scientists, as they travel instantaneously to other planets to explore, forge alliances, defuse crises, establish trade, investigate ancient mysteries and defend Earth from such hostile forces as the Goa'uld and the Replicators. For eight years, from their base at the U.S. Air Force's Stargate Command in the Rocky Mountains, Colonel Jack O'Neill, Dr. Daniel Jackson, Lt. Colonel Samantha Carter and alien warrior Teal'c have braved everything that the universe has thrown at them, from interstellar war and evil twins to death and ascension. But changes came to SG-1 as it began its ninth year of fearless service to Earth. New faces joined the team, as Lt. Col. Cameron Mitchell tries to fill the very big shoes of former SG-1 leader O'Neill, while General Hank Landry must adapt to the unique challenges of running Stargate Command, a posting unlike any other the military has to offer. Offworld, SG-1 might have new friends - or new foes - in Vala, a former Goa'uld host turned freedom-fighter; and Gerak, a Jaffa leader who vies with Teal'c for political control of the new Jaffa nation.",
-            "country": "United States",
-            "network": "Syfy",
-            "year": 1997,
-            "runtime": 60,
-            "status": "canceled-series",
-            "genres": [
+            "show_imdb_id": "tt0118480",
+            "show_slug": "stargate-sg1",
+            "show_title": "Stargate SG-1",
+            "show_summary": "Step through the Stargate with SG-1, a team of soldiers and scientists, as they travel instantaneously to other planets to explore, forge alliances, defuse crises, establish trade, investigate ancient mysteries and defend Earth from such hostile forces as the Goa'uld and the Replicators. For eight years, from their base at the U.S. Air Force's Stargate Command in the Rocky Mountains, Colonel Jack O'Neill, Dr. Daniel Jackson, Lt. Colonel Samantha Carter and alien warrior Teal'c have braved everything that the universe has thrown at them, from interstellar war and evil twins to death and ascension. But changes came to SG-1 as it began its ninth year of fearless service to Earth. New faces joined the team, as Lt. Col. Cameron Mitchell tries to fill the very big shoes of former SG-1 leader O'Neill, while General Hank Landry must adapt to the unique challenges of running Stargate Command, a posting unlike any other the military has to offer. Offworld, SG-1 might have new friends - or new foes - in Vala, a former Goa'uld host turned freedom-fighter; and Gerak, a Jaffa leader who vies with Teal'c for political control of the new Jaffa nation.",
+            "show_country": "United States",
+            "show_network": "Syfy",
+            "show_year": 1997,
+            "show_runtime": 60,
+            "show_status": "canceled-series",
+            "show_genres": [
                 {
-                    "slug": "science-fiction"
+                    "genre_slug": "science-fiction"
                 },
                 {
-                    "slug": "adventure"
+                    "genre_slug": "adventure"
                 },
                 {
-                    "slug": "action"
+                    "genre_slug": "action"
                 }
             ]
+        }
+    ],
+    "episodes": [
+        {
+            "show_slug": "game-of-thrones",
+            "episode_imdb_id": "tt1480055",
+            "episode_season": "1",
+            "episode_number": "2",
+            "episode_title": "Winter Is Coming",
+            "episode_slug": "winter-is-coming",
+            "episode_summary": "A Night's Watch deserter is tracked down outside of Winterfell, prompting swift justice by Lord Eddard Ned Stark and raising concerns about the dangers in the lawless lands north of the Wall. Returning home, Ned learns from his wife Catelyn that his mentor, Jon Arryn, has died in the Westeros capital of King's Landing, and that King Robert is on his way north to offer Ned Arryn's position as the King's Hand. Meanwhile, across the NarrowSeain Pentos, Viserys Targaryen hatches a plan to win back the throne, which entails forging an allegiance with the nomadic Dothraki warriors by giving its leader, Khal Drogo, his lovely sister Daenerys' hand in marriage. Robert arrives at Winterfell with his wife, Queen Cersei, and other members of the Lannister family: her twin brother Jaime, dwarf brother Tyrion and Cersei's son and heir to the throne, 12-year-old Joffrey. Unable to refuse his old friend and king, Ned prepares to leave for King's Landing, as Jon Snow decides to travel north to Castle Black to join the Night's Watch, accompanied by a curious Tyrion. But a startling act of treachery directed at young Bran may postpone their departures.",
+            "episode_air_date": "2011-04-17 00:00:00"
+        },
+        {
+            "show_slug": "game-of-thrones",
+            "episode_imdb_id": "tt1668746",
+            "episode_season": "1",
+            "episode_number": "3",
+            "episode_title": "The Kingsroad",
+            "episode_slug": "the-kingsroad",
+            "episode_summary": "Bran's fate remains in doubt. Having agreed to become the King's Hand, Ned leaves Westeros with daughters Sansa and Arya, while Catelyn stays behind to tend to Bran. Jon Snow heads north to join the brotherhood of the Night's Watch. Tyrion decides to forego the trip south with his family, instead joining Jon in the entourage heading to the Wall. Viserys bides his time in hopes of winning back the throne, while Daenerys focuses her attention on learning how to please her new husband, Drogo.",
+            "episode_air_date": "2011-04-24 00:00:00"
+        },
+        {
+            "show_slug": "game-of-thrones",
+            "episode_imdb_id": "tt1829962",
+            "episode_season": "1",
+            "episode_number": "4",
+            "episode_title": "Lord Snow",
+            "episode_slug": "lord-snow",
+            "episode_summary": "Arriving at King's Landing after his long journey, Ned is shocked to learn of the Crown's profligacy from his new advisors. At Castle Black, Jon Snow impresses Tyrion at the expense of greener recruits. Suspicious that the Lannisters had a hand in Bran's fall, Catelyn covertly follows her husband to King's Landing, where she is intercepted by Petyr Baelish, aka Littlefinger, a shrewd longtime ally and brothel owner. Cersei and Jaime ponder the implications of Bran's recovery; Arya studies swordsmanship. On the road to Vaes Dothrak, Daenerys finds herself at odds with Viserys.",
+            "episode_air_date": "2011-05-01 00:00:00"
+        },
+
+
+        {
+            "show_slug": "game-of-thrones",
+            "episode_imdb_id": "tt182s9962",
+            "episode_season": "1",
+            "episode_number": "4",
+            "episode_title": "Lord Snow",
+            "episode_slug": "lord-snsow",
+            "episode_summary": "Arriving at King's Landing after his long journey, Ned is shocked to learn of the Crown's profligacy from his new advisors. At Castle Black, Jon Snow impresses Tyrion at the expense of greener recruits. Suspicious that the Lannisters had a hand in Bran's fall, Catelyn covertly follows her husband to King's Landing, where she is intercepted by Petyr Baelish, aka Littlefinger, a shrewd longtime ally and brothel owner. Cersei and Jaime ponder the implications of Bran's recovery; Arya studies swordsmanship. On the road to Vaes Dothrak, Daenerys finds herself at odds with Viserys.",
+            "episode_air_date": "2011-05-01 00:00:00"
+        },
+
+
+
+
+
+
+
+
+        {
+            "show_slug": "supernatural",
+            "episode_imdb_id": "tt1222610",
+            "episode_season": "4",
+            "episode_number": "5",
+            "episode_title": "Monster Movie",
+            "episode_slug": "monster-movie",
+            "episode_summary": "Sam and Dean look into a string of murders committed at Oktoberfest. The first victim is found with bite marks, leading them to believe they were caused by a vampire. However, the second victim appears to be killed by a werewolf. When a mummy rises from the crypt, Dean believes that a shape-shifting creature is behind the attacks.",
+            "episode_air_date": "2008-10-16 00:00:00"
+        },
+        {
+            "show_slug": "supernatural",
+            "episode_imdb_id": "tt1222613",
+            "episode_season": "4",
+            "episode_number": "6",
+            "episode_title": "Yellow Fever",
+            "episode_slug": "yellow-fever",
+            "episode_summary": "Dean becomes the latest victim of a ghost sickness that causes the victims to steadily become more fearful until their hearts burst. With time running out, the brothers must figure out how to destroy the ghost responsible.",
+            "episode_air_date": "2008-10-23 00:00:00"
+        },
+        {
+            "show_slug": "supernatural",
+            "episode_imdb_id": "tt1461906",
+            "episode_season": "5",
+            "episode_number": "1",
+            "episode_title": "Sympathy for the Devil",
+            "episode_slug": "sympathy-for-the-devil",
+            "episode_summary": "Sam and Dean prepare for Lucifer's arrival only to find themselves on a plane flying overhead. Castiel is destroyed by the Archangel, and the brothers are left to work with Bobby to pick up the pieces and take on angels and demons alike as Zachariah reveals his master plan.",
+            "episode_air_date": "2009-09-10 00:00:00"
+        },
+        {
+            "show_slug": "supernatural",
+            "episode_imdb_id": "tt1464088",
+            "episode_season": "5",
+            "episode_number": "2",
+            "episode_title": "Good God, Y'All!",
+            "episode_slug": "good-god-yall",
+            "episode_summary": "Arriving at King's Landing after his long journey, Ned is shocked to learn of the Crown's profligacy from his new advisors. At Castle Black, Jon Snow impresses Tyrion at the expense of greener recruits. Suspicious that the Lannisters had a hand in Bran's fall, Catelyn covertly follows her husband to King's Landing, where she is intercepted by Petyr Baelish, aka Littlefinger, a shrewd longtime ally and brothel owner. Cersei and Jaime ponder the implications of Bran's recovery; Arya studies swordsmanship. On the road to Vaes Dothrak, Daenerys finds herself at odds with Viserys.",
+            "episode_air_date": "2009-09-17 00:00:00"
         }
     ]
 }

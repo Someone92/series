@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSeasonsShowsTable extends Migration {
+class CreateEpisodesShowsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,9 +12,9 @@ class CreateSeasonsShowsTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('seasons_shows', function (Blueprint $table) {
-            $table->integer('seasons_id')->unsigned();
-            $table->foreign('seasons_id')->references('id')->on('seasons');
+        Schema::create('episodes_shows', function (Blueprint $table) {
+            $table->integer('episodes_id')->unsigned();
+            $table->foreign('episodes_id')->references('id')->on('episodes');
 
             $table->integer('shows_id')->unsigned();
             $table->foreign('shows_id')->references('id')->on('shows');
@@ -27,6 +27,8 @@ class CreateSeasonsShowsTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('seasons_shows');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('episodes_shows');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

@@ -15,8 +15,8 @@ class StatusTableSeeder extends Seeder {
 
         foreach($data->status as $status) {
             DB::table('status')->insert([
-                'name' => $status->name,
-                'slug' => $status->slug
+                'status_name' => $status->status_name,
+                'status_slug' => $status->status_slug
             ]);
         }
     }

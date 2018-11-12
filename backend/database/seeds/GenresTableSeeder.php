@@ -15,8 +15,8 @@ class GenresTableSeeder extends Seeder {
 
         foreach($data->genres as $genre) {
             DB::table('genres')->insert([
-                'name' => $genre->name,
-                'slug' => $genre->slug
+                'genre_name' => $genre->genre_name,
+                'genre_slug' => $genre->genre_slug
             ]);
         } 
     }

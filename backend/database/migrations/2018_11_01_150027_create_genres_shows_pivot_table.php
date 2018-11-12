@@ -27,6 +27,8 @@ class CreateGenresShowsPivotTable extends Migration {
      * @return void
      */
     public function down() {
-        Schema::dropIfExists('genres_series');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('genres_shows');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

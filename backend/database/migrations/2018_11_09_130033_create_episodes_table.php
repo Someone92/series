@@ -14,12 +14,16 @@ class CreateEpisodesTable extends Migration {
     public function up() {
         Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('imdbId', 70)->unique();
-            $table->string('slug', 70)->unique();
-            $table->string('title', 70)->index();
-            $table->integer('number');
-            $table->string('summary', 1000);
-            $table->timestamp('first_aired');
+            $table->string('episode_imdb_id', 70)->unique();
+
+            $table->integer('episode_season');
+            $table->integer('episode_number');
+
+            $table->string('episode_title', 70);
+            $table->string('episode_slug', 70)->unique();
+            $table->string('episode_summary', 1500);
+            $table->timestamp('episode_air_date')->index();
+            $table->timestamps();
         });
     }
 
@@ -28,8 +32,9 @@ class CreateEpisodesTable extends Migration {
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('episodes');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

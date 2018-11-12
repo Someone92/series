@@ -21,4 +21,9 @@ class Shows extends Model {
 	public function status() {
 		return $this->belongsTo('App\Status');
 	}
+
+	public function episode() {
+		return $this->belongsToMany('App\Episodes');
+	}
+
 }
