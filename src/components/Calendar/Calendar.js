@@ -7,6 +7,7 @@ import './calendar.scss';
 
 import axios from 'axios';
 import CalendarWrapper from './CalendarWrapper';
+import CalendarToolbar from './CalendarToolbar';
 import CalendarEvents from './CalendarEvents';
 
 class Calendar extends Component {
@@ -17,6 +18,7 @@ class Calendar extends Component {
         };
     }
 
+
     componentWillMount() {
         // Get current date ( year - month )
         // Access API - search ( year - month )
@@ -24,7 +26,7 @@ class Calendar extends Component {
         
         console.log(moment().toString());
 
-        axios.get('https://api.trakt.tv/calendars/all/shows/2018-10-15/1', {
+        axios.get('https://api.trakt.tv/calendars/all/shows/2018-11-14/1', {
             headers: {
                 Authorization: "Bearer " + process.env.REACT_APP_AUTHORIZATION_KEY,
                 "trakt-api-version": process.env.REACT_APP_TRAKT_API_VERSION,
@@ -49,7 +51,8 @@ class Calendar extends Component {
         const Calendar = props => (
               <BigCalendar
                 components={{
-                    eventWrapper: CalendarWrapper
+                    eventWrapper: CalendarWrapper,
+                    toolbar: CalendarToolbar
                 }}
                 localizer={localizer}
                 //events={CalendarEvents}
@@ -57,6 +60,7 @@ class Calendar extends Component {
                 onSelectEvent={(event) => this.handleSelectedEvent(event)}
                 startAccessor='first_aired'
                 endAccessor='first_aired'
+
               />
           )
 

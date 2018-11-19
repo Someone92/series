@@ -45,6 +45,35 @@
         font-style: italic;
     }
 }
+
+.calendar-toolbar {
+	display: grid;
+	grid-template: 50px / 250px auto 250px;
+	align-items: center;
+	margin-bottom: 10px;
+
+	.toolbar-left,
+	.toolbar-right {
+		a {
+			display: inline-block;
+			width: 100%;
+			height: 50px;
+		}
+	}
+	.toolbar-left {
+		text-align: left;
+		background: blue;
+	}
+	.toolbar-center {
+		text-align: center;
+
+	}
+	.toolbar-right {
+		text-align: right;
+		background: red;
+	}
+}
+
 .rbc-btn {
     color: inherit;
     font: inherit;
