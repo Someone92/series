@@ -1,0 +1,33 @@
+@import "variables"
+	
+footer
+	background: darken($wiking-background, 30%)
+	border-bottom: 25px solid darken(transparentize($wiking-primary-color, .8), 35%)
+	height: 200px
+	text-align: center
+	display: grid
+
+	.copy
+		color: lighten(transparentize($wiking-primary-color, .3), 40%)
+		font-size: 0.9rem
+		margin: 10px 0
+		align-self: end
+
+		a
+			color: $wiking-accent-color
+			cursor: pointer
+			display: inline-block
+			transition: color .2s ease-in-out
+
+			&:after
+				content: ''
+				display: block
+				border-bottom: 1px solid darken($wiking-accent-color, 7%)
+				transform: scaleX(0)
+				transition: transform 250ms ease-in-out
+
+			&:hover
+				color: darken($wiking-accent-color, 7%)
+				
+				&:after
+					transform: scaleX(1)

@@ -1,0 +1,75 @@
+@import "variables"
+@import "mixins"
+
+header
+	background: darken($wiking-background, 30%)
+	height: 60px
+	box-shadow: 0 2px 8px darken($wiking-background, 30%)
+	font-family: $font-family-heading
+
+	nav
+		max-width: 98%
+		margin: 0 auto
+		display: grid
+		grid-template: 60px / 200px 250px auto
+		align-items: center
+		color: $nav-text-color
+
+		.logo
+			a
+				font-size: 1.5rem
+				font-weight: 700
+				color: lighten($wiking-primary-color, 35%)
+				
+		.search
+			position: relative
+			height: 60px
+
+			fa-icon
+				font-size: 1.2rem
+				left: 5px
+				pointer-events: none
+				@include vertical-align(absolute)
+
+			input[type="search"]
+				height: 100%
+				width: 80px
+				color: white
+				transition: all .5s ease-in-out
+				outline: none
+				padding: 7px 7px 7px 25px
+				background: transparent
+
+				&::placeholder
+					text-transform: capitalize
+					font-style: italic
+					color: lighten($wiking-primary-color, 35%)
+
+				&:hover
+					background: darken($wiking-background, 32%)
+
+				&:focus,
+				&:active,
+				&:valid
+					width: 200px
+					background: darken($wiking-background, 35%)
+
+				&::-webkit-search-decoration,
+				&::-webkit-search-cancel-button,
+				&::-webkit-search-results-button,
+				&::-webkit-search-results-decoration
+					-webkit-appearance: none
+
+		ul
+			justify-self: right
+			text-transform: uppercase
+
+			li
+				list-style: none
+				display: inline-block
+
+				&:not(:last-child) a
+					padding: 0 15px
+
+			a
+				display: inherit

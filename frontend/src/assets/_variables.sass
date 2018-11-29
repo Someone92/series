@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Merriweather:300,300i,400,400i,700,700i,900,900i')
+@import "colors"
+/* * * * * * *
+ * Functions *
+ * * * * * * */
+@function wiking-color($palette, $gradient: 400)
+	@return map-get($palette, $gradient)
+
+/* * * * * * * * * *
+ * Color-variables *
+ * * * * * * * * * */
+$wiking-primary-color: wiking-color($blueGrey, 600)
+$wiking-accent-color: wiking-color($lime, 500)
+
+// Global variables
+$wiking-background: wiking-color($deepOrange, 800)
+
+$wiking-succ: wiking-color($green, 700)
+$wiking-warn: wiking-color($orange, 700)
+$wiking-erro: wiking-color($red, 700)
+$wiking-info: wiking-color($blue, 700)
+
+$nav-text-color: $wiking-accent-color
+
+
+
+/* * * * * * * * * *
+ * Font-variables  *
+ * * * * * * * * * */
+$font-size: 14px
+$font-family-heading: 'Lora', serif;
+$font-family-body: 'Merriweather', serif;
