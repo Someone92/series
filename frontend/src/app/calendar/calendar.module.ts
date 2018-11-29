@@ -3,14 +3,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { HttpClientModule } from '@angular/common/http';
-import { HttpModule } from '@angular/http';
 
-
-import { CalendarComponent } from './calendar.component';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/* * * * * *
+ * Vendors *
+ * * * * * */
+// Angular-Calendar
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+// FontAwesome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+/* * * * * * * * * * * *
+ * Individual-mponents *
+ * * * * * * * * * * * */
+import { CalendarComponent } from './calendar.component';
+import { CalendarToolbarComponent } from './calendar-toolbar/calendar-toolbar.component';
 
 
 const routes: Routes = [
@@ -19,7 +27,7 @@ const routes: Routes = [
 @NgModule({
 	declarations: [
 		CalendarComponent,
-
+		CalendarToolbarComponent
 	],
 	imports: [
 		RouterModule.forChild(routes),
@@ -28,7 +36,8 @@ const routes: Routes = [
 		CalendarModule.forRoot({
 			provide: DateAdapter,
 			useFactory: adapterFactory 
-		})
+		}),
+		FontAwesomeModule
 	],
 	exports: [
 		RouterModule

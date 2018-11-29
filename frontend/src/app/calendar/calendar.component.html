@@ -6,7 +6,6 @@
 	</div>
 </ng-template>
 
-
 <ng-template
 	#customCellTemplate
 	let-day="day"
@@ -19,7 +18,10 @@
 	let-tooltipAppendToBody="tooltipAppendToBody">
 	<div style="min-height: 20px">
 		<span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
-		<span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+		<span class="cal-day-number">
+			{{ day.date | calendarDate:'monthViewDayNumber':locale }}
+			{{ day.date | date:"EEEE" }}
+		</span>
 	</div>
 	<div class="cal-events" *ngIf="day.events.length > 0">
 		<div style="display:inline-block;width:100%;line-height:normal"
@@ -31,9 +33,27 @@
 
 
 <div *ngIf="events | async; else loading; let events">
+
+<app-calendar-toolbar
+	[view]="view"
+	[(viewDate)]="viewDate">
+</app-calendar-toolbar>
+	<!-- 
+		import at end aswell(footer)
+		currently only updated next/prev
+		on the one u click
+	-->
+
+
 	<mwl-calendar-month-view
 		[viewDate]="viewDate"
 		[events]="events"
 		[cellTemplate]="customCellTemplate">
 	</mwl-calendar-month-view>
+
+
+	<app-calendar-toolbar
+		[view]="view"
+		[(viewDate)]="viewDate">
+	</app-calendar-toolbar>
 </div>

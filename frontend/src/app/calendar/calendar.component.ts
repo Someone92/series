@@ -18,6 +18,11 @@ import {
 	addHours
   } from 'date-fns';
 
+
+
+import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
+
+
 interface Episode {
 	title: string;
 	first_aired: Date;
@@ -37,32 +42,54 @@ interface TT {
 	styleUrls: ['./calendar.component.sass']
 })
 export class CalendarComponent implements OnInit {
-	private title = 'Calendar | Wiking';
+	angleLeft = faAngleDoubleLeft;
+	angleRight = faAngleDoubleRight;
+
+	private title = 'Calendar - Wiking';
 
 	constructor(private titleService: Title,
 				private http: HttpClient) {
 		this.titleService.setTitle(this.title);
 	}
+	view: string = "month";
 
 	viewDate: Date = new Date();
-	//events = [];
-
 	events: Observable<Array<CalendarEvent<{ episode: Episode }>>>;
 	
-	
+	test: string = 'THIS IS A TEST';
+
 	ngOnInit() {
-		//this.events = [
-		//	{
-		//		start: subDays(startOfDay(new Date()), 1),
-		//		title: 'A 3 day event',
-		//		allDay: true
-		//	}
-		//  ];
-		this.test();
+		this.traktEvent();
+		//console.log(this.viewDate);
+		this.getNextPrevMonth();
 	}
 
-	eventHolder = [];
-	test() {
+	monthNameNext: string;
+	monthNamePrev: string;
+	
+	getNextPrevMonth() {
+		let monthNumber = this.viewDate.getMonth();
+		var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+			'July', 'August', 'September', 'October', 'November', 'December'];
+
+		if(monthNumber == 0) {
+			// Prev month is December
+			this.monthNameNext = monthNames[monthNumber + 1];
+			this.monthNamePrev = monthNames[11];
+		} else if(monthNumber == 11) {
+			// Next month is January
+			this.monthNameNext = monthNames[0];
+			this.monthNamePrev = monthNames[monthNumber - 1];
+		} else {
+			this.monthNameNext = monthNames[monthNumber + 1];
+			this.monthNamePrev = monthNames[monthNumber - 1];
+		}
+	}
+
+
+
+
+	traktEvent() {
 		const _headers = new HttpHeaders()
 			.set('Authorization', 'Bearer 7c1ab6ee8853f04fd6134f7f5f1d72a0e01d9bcd8baf4ab9c0086aeefb856be5')
 			.set('trakt-api-version', '2')
@@ -71,41 +98,11 @@ export class CalendarComponent implements OnInit {
 			headers: _headers
 		};
 
-		//return this.http.get("https://api.trakt.tv/calendars/all/shows/2018-11-29/1", httpOptions).subscribe(
-		//	res => {
-		//		console.log(res);
-		//		for(let dd in res) {
-		//			let event = res[dd];
-		//			console.log(new Date(event.first_aired));
-		//			console.log(subDays(startOfDay(new Date()), 1))
-		//			const tt = {
-		//				"start": new Date(event.first_aired),
-		//				"title": event.episode.title,
-		//				allDay: true,
-		//			};
-		//			this.events.push(tt);
-		//			if(parseInt(dd) == 10) {
-		//				break;
-		//			}
-		//		}
-		//	  },
-		//	  err => {
-		//		console.log('Error occurred', err);
-		//	  });
-			  
-
-
-
-
 		this.events = this.http
-			.get('https://api.trakt.tv/calendars/all/shows/2018-11-30/1', httpOptions)
+			.get('https://api.trakt.tv/calendars/all/shows/2018-10-30/1', httpOptions)
 			.pipe(
 				map((results: any[]) => {
-					
-					console.log('test');
-					
 						return results.map(tt => {
-							console.log(tt.episode.title);
 							return {
 								"title": tt.show.title,
 								"start": new Date(tt.first_aired),
