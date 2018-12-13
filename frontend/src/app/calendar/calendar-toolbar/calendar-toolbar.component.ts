@@ -1,78 +1,107 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faAngleDoubleLeft, faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons'
 
+import { CalendarView } from 'angular-calendar';
 @Component({
-  selector: 'app-calendar-toolbar',
-  template: `
-  <div class="calendar-toolbar">
-  <div
-    (click)="getNextPrevMonth()"
-    mwlCalendarPreviousView
-    [view]="view"
-    [(viewDate)]="viewDate">
-    <fa-icon [icon]="angleLeft"></fa-icon>{{monthNamePrev}}
-  </div>
-  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-  
-  <div
-    (click)="getNextPrevMonth()"
-    mwlCalendarNextView
-    [view]="view"
-    [(viewDate)]="viewDate">
-    {{monthNameNext}}<fa-icon [icon]="angleRight"></fa-icon>
-    
-  </div>
-</div>
-  `,
-  styleUrls: ['./calendar-toolbar.component.sass']
+	selector: 'app-calendar-toolbar',
+	template: `
+		<div class="calendar__toolbar">
+
+			<div class="calendar__toolbar--view">
+				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='week'}">Week</span>
+				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='month'}">Month</span>
+			</div>
+
+			<h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+
+			<div class="calendar__toolbar--change">
+				<span
+					(click)="getNextPrev()"
+					mwlCalendarPreviousView
+					[view]="view"
+					[(viewDate)]="viewDate">
+					<fa-icon [icon]="angleLeft"></fa-icon>{{monthNamePrev}}
+				</span>
+				<span
+					(click)="getNextPrev()"
+					mwlCalendarNextView
+					[view]="view"
+					[(viewDate)]="viewDate">
+					{{monthNameNext}}<fa-icon [icon]="angleRight"></fa-icon>
+				</span>
+			</div>			
+		</div>
+	`,
+	styleUrls: ['./calendar-toolbar.component.scss']
 })
 export class CalendarToolbarComponent {
-  /**
-   * The current view
-   */
-  @Input()
-  view: string;
+	/**
+	 * The current view
+	 */
+	@Input() view: CalendarView;
 
-  /**
-   * The current view date
-   */
-  @Input()
-  viewDate: Date;
+	@Output() viewChange: EventEmitter<CalendarView> = new EventEmitter();
 
-  /**
-   * Called when the view date is changed
-   */
-  @Output()
-  viewDateChange: EventEmitter<Date> = new EventEmitter();
-  
+
+	montertest(value: string) {
+		this.getNextPrev();
+		console.log(value);
+		if(value == 'Month') {
+			this.view = CalendarView.Month;
+		} else {
+			this.view = CalendarView.Week;
+		}
+		
+		this.viewChange.emit(this.view);
+		console.log(this.view);
+		
+	}
+
+	/**
+	 * The current view date
+	 */
+	@Input() viewDate: Date;
+
+	/**
+	 * Called when the view date is changed
+	 */
+	@Output() viewDateChange: EventEmitter<Date> = new EventEmitter();
+
 	angleLeft = faAngleDoubleLeft;
-  angleRight = faAngleDoubleRight;
-  
-  monthNameNext: string;
+	angleRight = faAngleDoubleRight;
+
+	monthNameNext: string;
 	monthNamePrev: string;
 
-  ngOnInit() {
-    console.log(this.viewDate);
-    this.getNextPrevMonth();
-  }
-
-	getNextPrevMonth() {
-		let monthNumber = this.viewDate.getMonth();
-		var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-			'July', 'August', 'September', 'October', 'November', 'December'];
-
-		if(monthNumber == 0) {
-			// Prev month is December
-			this.monthNameNext = monthNames[monthNumber + 1];
-			this.monthNamePrev = monthNames[11];
-		} else if(monthNumber == 11) {
-			// Next month is January
-			this.monthNameNext = monthNames[0];
-			this.monthNamePrev = monthNames[monthNumber - 1];
+	ngOnInit() {
+		this.getNextPrev();
+	}
+	
+	getNextPrev() {
+		console.log((this.viewDate.getMonth()+1)%12 + 1);
+		if(this.view === "week") {
+			this.monthNameNext = 'Next';
+			this.monthNamePrev = 'Previous';
 		} else {
-			this.monthNameNext = monthNames[monthNumber + 1];
-			this.monthNamePrev = monthNames[monthNumber - 1];
-    }
-    this.viewDateChange.emit(this.viewDate);    
+			console.log('wTF');
+			let monthNumber = this.viewDate.getMonth();
+			var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
+				'July', 'August', 'September', 'October', 'November', 'December'];
+
+			if(monthNumber == 0) {
+				// Prev month is December
+				this.monthNameNext = monthNames[monthNumber + 1];
+				this.monthNamePrev = monthNames[11];
+			} else if(monthNumber == 11) {
+				// Next month is January
+				this.monthNameNext = monthNames[0];
+				this.monthNamePrev = monthNames[monthNumber - 1];
+			} else {
+				this.monthNameNext = monthNames[monthNumber + 1];
+				this.monthNamePrev = monthNames[monthNumber - 1];
+		}
+		
+	}
+	this.viewDateChange.emit(this.viewDate);
 	}
 }

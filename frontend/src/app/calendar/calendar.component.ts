@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
  
@@ -6,17 +6,7 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import { CalendarEvent } from 'angular-calendar';
-import {
-	startOfDay,
-	endOfDay,
-	subDays,
-	addDays,
-	endOfMonth,
-	isSameDay,
-	isSameMonth,
-	addHours
-  } from 'date-fns';
+import { CalendarEvent, CalendarView } from 'angular-calendar';
 
 
 
@@ -39,7 +29,7 @@ interface TT {
 	selector: 'app-calendar',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 	templateUrl: './calendar.component.html',
-	styleUrls: ['./calendar.component.sass']
+	styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
 	angleLeft = faAngleDoubleLeft;
@@ -51,43 +41,18 @@ export class CalendarComponent implements OnInit {
 				private http: HttpClient) {
 		this.titleService.setTitle(this.title);
 	}
-	view: string = "month";
+	
+	view: CalendarView = CalendarView.Week;
+	CalendarView = CalendarView;
+
+
 
 	viewDate: Date = new Date();
 	events: Observable<Array<CalendarEvent<{ episode: Episode }>>>;
-	
-	test: string = 'THIS IS A TEST';
 
 	ngOnInit() {
 		this.traktEvent();
-		//console.log(this.viewDate);
-		this.getNextPrevMonth();
 	}
-
-	monthNameNext: string;
-	monthNamePrev: string;
-	
-	getNextPrevMonth() {
-		let monthNumber = this.viewDate.getMonth();
-		var monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-			'July', 'August', 'September', 'October', 'November', 'December'];
-
-		if(monthNumber == 0) {
-			// Prev month is December
-			this.monthNameNext = monthNames[monthNumber + 1];
-			this.monthNamePrev = monthNames[11];
-		} else if(monthNumber == 11) {
-			// Next month is January
-			this.monthNameNext = monthNames[0];
-			this.monthNamePrev = monthNames[monthNumber - 1];
-		} else {
-			this.monthNameNext = monthNames[monthNumber + 1];
-			this.monthNamePrev = monthNames[monthNumber - 1];
-		}
-	}
-
-
-
 
 	traktEvent() {
 		const _headers = new HttpHeaders()

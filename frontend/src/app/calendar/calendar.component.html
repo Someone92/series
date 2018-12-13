@@ -7,22 +7,18 @@
 </ng-template>
 
 <ng-template
-	#customCellTemplate
-	let-day="day"
-	let-locale="locale"
-	let-tooltipPlacement="tooltipPlacement"
-	let-highlightDay="highlightDay"
-	let-unhighlightDay="unhighlightDay"
-	let-eventClicked="eventClicked"
-	let-tooltipTemplate="tooltipTemplate"
-	let-tooltipAppendToBody="tooltipAppendToBody">
-	<div style="min-height: 20px">
-		<span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
-		<span class="cal-day-number">
+	#customMonthTemplate
+	let-day="day">
+
+	<div class="cal-cell-header">
+		<span class="cal-cell-day">
 			{{ day.date | calendarDate:'monthViewDayNumber':locale }}
 			{{ day.date | date:"EEEE" }}
 		</span>
+		<span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
 	</div>
+
+	<!-- Displays events on the calendar-->
 	<div class="cal-events" *ngIf="day.events.length > 0">
 		<div style="display:inline-block;width:100%;line-height:normal"
 			*ngFor="let event of day.events">
@@ -32,28 +28,58 @@
 </ng-template>
 
 
-<div *ngIf="events | async; else loading; let events">
 
-<app-calendar-toolbar
-	[view]="view"
-	[(viewDate)]="viewDate">
-</app-calendar-toolbar>
-	<!-- 
-		import at end aswell(footer)
-		currently only updated next/prev
-		on the one u click
-	-->
-
-
-	<mwl-calendar-month-view
-		[viewDate]="viewDate"
-		[events]="events"
-		[cellTemplate]="customCellTemplate">
-	</mwl-calendar-month-view>
+<ng-template
+	#customWeekTemplate
+	let-days="days">
+		<div class="calendar--week">
+			<div *ngFor="let day of days">
+				{{ day.date | calendarDate: 'weekViewColumnHeader':locale }}
+			</div>
+		</div>
+</ng-template>
 
 
-	<app-calendar-toolbar
-		[view]="view"
-		[(viewDate)]="viewDate">
-	</app-calendar-toolbar>
+<div class="calendar" *ngIf="events | async; else loading; let events">
+
+	
+	<div class="calendar__sidebar">
+		<app-calendar-toolbar
+			[(view)]=view
+			[(viewDate)]="viewDate">
+		</app-calendar-toolbar>
+	</div>
+
+	<div class="calendar__main" [ngSwitch]="view">
+		
+
+		<mwl-calendar-month-view-header
+			style="display: none"
+			[days]="columnHeaders"
+			[locale]="locale"
+			[customTemplate]="headerTemplate">
+		</mwl-calendar-month-view-header>
+
+		<mwl-calendar-month-view
+			*ngSwitchCase="CalendarView.Month"
+			[weekStartsOn]="1"
+			[viewDate]="viewDate"
+			[events]="events"
+			[cellTemplate]="customMonthTemplate">
+		</mwl-calendar-month-view>
+
+		<mwl-calendar-week-view
+			*ngSwitchCase="CalendarView.Week"
+			[viewDate]="viewDate"
+			[events]="events"
+			[headerTemplate]="customWeekTemplate">
+		</mwl-calendar-week-view>
+	</div>
+
+
+
+
+
+
+
 </div>
