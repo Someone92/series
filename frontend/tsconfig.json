@@ -5,8 +5,9 @@
     "outDir": "./dist/out-tsc",
 
     "paths": {
-      "@calendar/*": ["app/calendar/*"],
-      "@core/*": ["app/core/*"]
+      "@core/*": ["app/core/*"],
+      "@modules/*": ["app/modules/*"],
+      "@services/*": ["app/services/*"]
     },
 
     "sourceMap": true,
