@@ -1,0 +1,42 @@
+@import "variables";
+@import "mixins";
+
+.calendar__toolbar {
+	color: #ffffff;
+	border-radius: 20px;
+	width: 100%;
+	display: grid;
+	grid-template-rows: 30px 45px 30px;
+
+	span {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		height: 100%;
+		justify-content: center;
+	}
+
+	&--change {
+		background: wiking-color($grey, 700);
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	&--date {
+		background: wiking-color($grey, 800);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.5rem;
+	}
+
+	&--view {
+		background: wiking-color($grey, 700);
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		span.active {
+			color: red;
+		}
+	}
+}

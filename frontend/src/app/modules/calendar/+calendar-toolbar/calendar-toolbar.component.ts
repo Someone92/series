@@ -6,14 +6,6 @@ import { CalendarView } from 'angular-calendar';
 	selector: 'app-calendar-toolbar',
 	template: `
 		<div class="calendar__toolbar">
-
-			<div class="calendar__toolbar--view">
-				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='week'}">Week</span>
-				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='month'}">Month</span>
-			</div>
-
-			<h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-
 			<div class="calendar__toolbar--change">
 				<span
 					(click)="getNextPrev()"
@@ -29,7 +21,13 @@ import { CalendarView } from 'angular-calendar';
 					[(viewDate)]="viewDate">
 					{{monthNameNext}}<fa-icon [icon]="angleRight"></fa-icon>
 				</span>
-			</div>			
+			</div>
+			<h3 class="calendar__toolbar--date">{{ viewDate | calendarDate:(view + 'ViewTitle'):weekStartsOn:1 }}</h3>
+
+			<div class="calendar__toolbar--view">
+				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='week'}">Week</span>
+				<span (click)="montertest($event.currentTarget.innerText)" [ngClass]="{active: view==='month'}">Month</span>
+			</div>
 		</div>
 	`,
 	styleUrls: ['./calendar-toolbar.component.scss']
@@ -44,7 +42,6 @@ export class CalendarToolbarComponent {
 
 
 	montertest(value: string) {
-		this.getNextPrev();
 		console.log(value);
 		if(value == 'Month') {
 			this.view = CalendarView.Month;
@@ -53,8 +50,7 @@ export class CalendarToolbarComponent {
 		}
 		
 		this.viewChange.emit(this.view);
-		console.log(this.view);
-		
+		this.getNextPrev();
 	}
 
 	/**
@@ -99,9 +95,8 @@ export class CalendarToolbarComponent {
 			} else {
 				this.monthNameNext = monthNames[monthNumber + 1];
 				this.monthNamePrev = monthNames[monthNumber - 1];
+			}
 		}
-		
-	}
-	this.viewDateChange.emit(this.viewDate);
+		this.viewDateChange.emit(this.viewDate);
 	}
 }

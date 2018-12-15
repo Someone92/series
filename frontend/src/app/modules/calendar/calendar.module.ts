@@ -18,8 +18,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
  * Individual-mponents *
  * * * * * * * * * * * */
 import { CalendarComponent } from './calendar.component';
-import { CalendarToolbarComponent } from './calendar-toolbar/calendar-toolbar.component';
-
+import { CalendarToolbarComponent } from './+calendar-toolbar/calendar-toolbar.component';
+import { CalendarWeekViewComponent } from './+calendar-week-view/calendar-week-view.component';
 
 const routes: Routes = [
 	{ path: "", component: CalendarComponent }
@@ -27,7 +27,8 @@ const routes: Routes = [
 @NgModule({
 	declarations: [
 		CalendarComponent,
-		CalendarToolbarComponent
+		CalendarToolbarComponent,
+		CalendarWeekViewComponent
 	],
 	imports: [
 		RouterModule.forChild(routes),

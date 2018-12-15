@@ -4,31 +4,32 @@
 .calendar {
 	display: grid;
 	grid-template-columns: 250px auto;
+	
 	&__sidebar {
 		background: $wiking-calendar__sidebar
-	}
-	&__main {
-
 	}
 }
 
 .cal-cell-row.cal-header {
 	display: none;
 }
+
 .cal-days {
 	@media screen and(min-width: 1200px) {
-		div:not(:first-child) {
+		> div:not(:first-child) {
 			margin-top: 10px;
 		}
 	}
+
 	.cal-cell-header {
 		background: $wiking-calendar__day__header;
 		padding: 10px;
 	}
+
 	.cal-cell-row {
 		display: grid;
 		
-		grid-template: repeaT(7, 150px) / auto;
+		grid-template: repeat(7, 150px) / auto;
 		grid-template-areas:
 			"d"
 			"d"
@@ -39,14 +40,18 @@
 			"d";
 
 		@media screen and(min-width: 1200px) {
-			grid-template: 150px / repeat(7, 1fr);
+			grid-template-columns: repeat(7, 1fr);
+			grid-template-rows: auto;
+			min-height: 50px;
 			grid-gap: 10px;
 			grid-template-areas:
 				"d d d d d d d";
 		}
 		
 		mwl-calendar-month-cell {
-			background: $wiking-calendar__day
+			background: $wiking-calendar__day;
 		}
 	}
 }
+
+

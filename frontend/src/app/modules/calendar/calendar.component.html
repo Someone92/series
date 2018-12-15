@@ -1,13 +1,13 @@
 <ng-template #loading>
 	<div class="text-center">
 		<i class="fa fa-spin fa-spinner fa-5x"></i>
-	<br>
-	Loading events...
+		<br>
+		Loading events...
 	</div>
 </ng-template>
 
 <ng-template
-	#customMonthTemplate
+	#monthTemplate
 	let-day="day">
 
 	<div class="cal-cell-header">
@@ -21,7 +21,7 @@
 	<!-- Displays events on the calendar-->
 	<div class="cal-events" *ngIf="day.events.length > 0">
 		<div style="display:inline-block;width:100%;line-height:normal"
-			*ngFor="let event of day.events">
+		*ngFor="let event of day.events">
 			{{ event.title }}
 		</div>
 	</div>
@@ -30,19 +30,28 @@
 
 
 <ng-template
-	#customWeekTemplate
-	let-days="days">
-		<div class="calendar--week">
-			<div *ngFor="let day of days">
-				{{ day.date | calendarDate: 'weekViewColumnHeader':locale }}
+	#weekTemplate>
+	<div class="calendar--week">
+		THIS IS ME
+		<!--<mwl-calendar-week-view-header>test</mwl-calendar-week-view-header>-->
+		
+		<div *ngFor="let eventRow of view.allDayEventRows">
+			hej
+			<div *ngFor="let allDayEvent of eventRow.row">
+				TESTING
 			</div>
 		</div>
+
+
+		<div *ngFor="let day of days">
+			{{ day.title }}sadasdas
+		</div>
+
+	</div>
 </ng-template>
 
 
-<div class="calendar" *ngIf="events | async; else loading; let events">
-
-	
+<div class="calendar" >
 	<div class="calendar__sidebar">
 		<app-calendar-toolbar
 			[(view)]=view
@@ -51,35 +60,28 @@
 	</div>
 
 	<div class="calendar__main" [ngSwitch]="view">
-		
-
-		<mwl-calendar-month-view-header
-			style="display: none"
-			[days]="columnHeaders"
-			[locale]="locale"
-			[customTemplate]="headerTemplate">
-		</mwl-calendar-month-view-header>
-
 		<mwl-calendar-month-view
 			*ngSwitchCase="CalendarView.Month"
 			[weekStartsOn]="1"
 			[viewDate]="viewDate"
 			[events]="events"
-			[cellTemplate]="customMonthTemplate">
+			[cellTemplate]="monthTemplate">
 		</mwl-calendar-month-view>
 
+
+		<app-calendar-week-view
+			*ngSwitchCase="CalendarView.Week"
+			[viewDate]="viewDate"
+			[events]="events">
+		</app-calendar-week-view>
+
+		<!--
 		<mwl-calendar-week-view
 			*ngSwitchCase="CalendarView.Week"
 			[viewDate]="viewDate"
 			[events]="events"
-			[headerTemplate]="customWeekTemplate">
+			[eventTemplate]="weekTemplate">
 		</mwl-calendar-week-view>
+		-->
 	</div>
-
-
-
-
-
-
-
 </div>
