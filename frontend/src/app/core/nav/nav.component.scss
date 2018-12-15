@@ -1,24 +1,24 @@
 @import "variables";
 @import "mixins";
 
-header{
-	background: darken($wiking-background, 30%);
+header {
+	background: $wiking-nav-color;
 	height: 60px;
-	box-shadow: 0 2px 8px darken($wiking-background, 30%);
+	box-shadow: 0 2px 8px $wiking-nav-color;
 	font-family: $font-family-heading;
 
 	nav {
 		max-width: 98%;
 		margin: 0 auto;
 		display: grid;
-		grid-template: 60px / 200px 250px auto;
+		grid-template: 60px / 250px 250px auto;
 		align-items: center;
 		color: $nav-text-color;
 
 		.logo a {
 			font-size: 1.5rem;
 			font-weight: 700;
-			color: lighten($wiking-primary-color, 35%);
+			color: lighten($wiking-nav-color, 65%);
 		}
 
 		.search {
@@ -27,35 +27,37 @@ header{
 
 			fa-icon {
 				font-size: 1.2rem;
-				left: 5px;
+				left: 10px;
 				pointer-events: none;
 				@include vertical-align(absolute);
 			}
 
 			input[type="search"] {
 				height: 100%;
-				width: 80px;
+				width: 200px;
 				color: white;
 				transition: all .5s ease-in-out;
 				outline: none;
-				padding: 7px 7px 7px 25px;
+				padding: 7px 7px 7px 35px;
 				background: transparent;
-
-				&::placeholder {
-					text-transform: capitalize;
-					font-style: italic;
-					color: lighten($wiking-primary-color, 35%);
-				}
-
-				&:hover {
-					background: darken($wiking-background, 32%);
-				}
 
 				&:focus,
 				&:active,
 				&:valid {
-					width: 200px;
-					background: darken($wiking-background, 35%);
+					width: 300px;
+				}
+
+				&:focus,
+				&:active,
+				&:valid,
+				&:hover {
+					background: lighten($wiking-nav-color, 5%);
+				}
+
+				&::placeholder {
+					text-transform: capitalize;
+					font-style: italic;
+					color: lighten($wiking-nav-color, 35%);
 				}
 
 				&::-webkit-search-decoration,
@@ -79,7 +81,7 @@ header{
 				}
 			}
 			
-			a{
+			a {
 				display: inherit;
 			}
 		}
