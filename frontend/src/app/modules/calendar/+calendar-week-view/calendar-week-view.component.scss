@@ -1,0 +1,52 @@
+@import 'variables';
+
+.calendar__week {
+	
+	&--header {
+		background: $calendar__week--header-color;
+		padding: 7px 0;
+		display: grid;
+		color: $calendar__week--text-color;
+		grid-template-areas: 
+			"a b"
+			"a c";
+
+		grid-template-columns: 50px auto auto;
+
+		&.cal-weekend {
+			color: $calendar__week--weekend-color;
+		}
+		
+		&.cal-today {
+			color: $calendar__week--today-color;
+		}
+		
+	}
+
+	&--number {
+		grid-area: a;
+		align-self: center;
+		text-align: center;
+		font-size: 1.5em;
+		font-weight: bold;
+	}
+
+	&--month {
+		grid-area: b;
+		font-size: .8rem;
+	}
+
+	&--day {
+		grid-area: c;
+		font-size: 1rem;
+		font-weight: bold;
+	}
+
+	&--events {
+		background: $calendar__week--events-color;
+		padding: 5px;
+		min-height: 50px;
+		color: #ffffff;
+	}
+
+}

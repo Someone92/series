@@ -1,20 +1,20 @@
 @import "variables";
 	
 footer {
-	background: darken($wiking-background, 30%);
-	border-bottom: 25px solid darken(transparentize($wiking-primary-color, .8), 35%);
+	background: $footer-color;
+	border-bottom: 20px solid $footer--border-color;
 	height: 200px;
 	text-align: center;
 	display: grid;
 
 	.copy {
-		color: lighten(transparentize($wiking-primary-color, .3), 40%);
+		color: $footer--text-color;
 		font-size: 0.9rem;
 		margin: 10px 0;
 		align-self: end;
 
 		a {
-			color: $wiking-accent-color;
+			color: $header--text-color;
 			cursor: pointer;
 			display: inline-block;
 			transition: color .2s ease-in-out;
@@ -22,14 +22,14 @@ footer {
 			&:after {
 				content: '';
 				display: block;
-				border-bottom: 1px solid darken($wiking-accent-color, 7%);
+				border-bottom: 1px solid $footer__anchor--hover-color;
 				transform: scaleX(0);
 				transition: transform 250ms ease-in-out;
 
-				&:hover {
-					color: darken($wiking-accent-color, 7%);
-				}
+			}
 
+			&:hover {
+				color: $footer__anchor--hover-color;
 				&:after {
 					transform: scaleX(1);
 				}

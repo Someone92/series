@@ -4,50 +4,91 @@
 /* * * * * * *
  * Functions *
  * * * * * * */
-@function wiking-color($palette, $gradient: 400) {
-	@return map-get($palette, $gradient);
+@function wiking-palette($palette, $base: 500, $darker: 700, $lighter: 300) {
+	$base: map-get($palette, $base);
+	$darker: map-get($palette, $darker);
+	$lighter: map-get($palette, $lighter);
+	$arr: (
+		'base': $base,
+		'lighter': $lighter,
+		'darker': $darker
+	);
+	@return $arr;
 }
 
-/* * * * * * * * * *
- * Color-variables *
- * * * * * * * * * */
-$wiking-primary-color: wiking-color($blueGrey, 600);
-$wiking-accent-color: wiking-color($lime, 500);
-
-// Global variables
-$wiking-background: wiking-color($deepOrange, 800);
-
-$wiking-succ: wiking-color($green, 700);
-$wiking-warn: wiking-color($orange, 700);
-$wiking-erro: wiking-color($red, 700);
-$wiking-info: wiking-color($blue, 700);
-
-$nav-text-color: $wiking-accent-color;
+@function wiking-color($color, $color-variation: null) {
+	@if($color-variation != null) {
+		@return map-get(map-get($wiking-theme, $color), $color-variation);
+	} @else {
+		@return map-get($wiking-theme, $color);
+	}
+}
 
 
-
-
-
-$wiking-nav-color: wiking-color($grey, 900);
-
+/* * * * *
+ * Theme *
+ * * * * */
+$wiking-theme: (
+	primary: wiking-palette($blueGrey, 800, 900, 700),
+	accent: wiking-palette($deepOrange),
+	success: map-get($green, 700),
+	warning: map-get($orange, 700),
+	danger: map-get($red, 500),
+	info: map-get($blue, 700)
+);
 
 
 
 
 
 
+///////////////////
+// Global colors //
+///////////////////
+$success-color: wiking-color(success);
+$warning-color: wiking-color(warning);
+$danger-color: wiking-color(danger);
+$info-color: wiking-color(info);
+
+////////////////
+// Navigation //
+////////////////
+$header-color: wiking-color(primary, darker);
+$header__logo-color: lighten(wiking-color(primary, lighter), 30%);
+$header__search-color: lighten($header-color, 5%);
+$header__search-placeholder-color: lighten(wiking-color(primary, lighter), 15%);
+$header__text-color: wiking-color(accent, base);
+
+////////////
+// Footer //
+////////////
+$footer-color: $header-color;
+$footer__border-color: darken($footer-color, 3%);
+$footer__text-color: $header__logo-color;
+$footer__anchor-color: $header__text-color;
+$footer__anchor--hover-color: darken($footer__anchor-color, 7%);
+
+//////////////
+// Calendar //
+//////////////
+// Toolbar
+$calendar__sidebar-color: #2c2c2c;
+$calendar__sidebar--border-color: #404040;
+
+// week-view
+$calendar__week--header-color: #2c2c2c;
+$calendar__week--text-color: rgba(255, 255, 255, 0.43);
+//$calendar__week--events-color: wiking-color(primary, lighter);
+$calendar__week--events-color: #404040;
+
+$calendar__week--today-color: wiking-color(success);
+$calendar__week--weekend-color: wiking-color(danger);
+// month-view
 
 
 
 
 
-
-
-
-
-$wiking-calendar__sidebar: wiking-color($deepOrange, 800);
-$wiking-calendar__day: $wiking-accent-color;
-$wiking-calendar__day__header: wiking-color($grey, 700);
 
 
 /* * * * * * * * * *

@@ -2,9 +2,8 @@
 @import "mixins";
 
 header {
-	background: $wiking-nav-color;
+	background: $header-color;
 	height: 60px;
-	box-shadow: 0 2px 8px $wiking-nav-color;
 	font-family: $font-family-heading;
 
 	nav {
@@ -13,12 +12,12 @@ header {
 		display: grid;
 		grid-template: 60px / 250px 250px auto;
 		align-items: center;
-		color: $nav-text-color;
+		color: $header__text-color;
 
 		.logo a {
 			font-size: 1.5rem;
 			font-weight: 700;
-			color: lighten($wiking-nav-color, 65%);
+			color: $header__logo-color
 		}
 
 		.search {
@@ -51,13 +50,13 @@ header {
 				&:active,
 				&:valid,
 				&:hover {
-					background: lighten($wiking-nav-color, 5%);
+					background: $header__search-color;
 				}
 
 				&::placeholder {
 					text-transform: capitalize;
 					font-style: italic;
-					color: lighten($wiking-nav-color, 35%);
+					color: $header__search-placeholder-color
 				}
 
 				&::-webkit-search-decoration,

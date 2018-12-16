@@ -3,10 +3,11 @@
 
 .calendar {
 	display: grid;
-	grid-template-columns: 250px auto;
+	grid-template-columns: 300px auto;
 	
 	&__sidebar {
-		background: $wiking-calendar__sidebar
+		background: $calendar__sidebar-color;
+		border-right: 2px solid $calendar__sidebar--border-color;
 	}
 }
 
@@ -15,6 +16,9 @@
 }
 
 .cal-days {
+	> div {
+		min-height: 150px;
+	}
 	@media screen and(min-width: 1200px) {
 		> div:not(:first-child) {
 			margin-top: 10px;
@@ -22,7 +26,7 @@
 	}
 
 	.cal-cell-header {
-		background: $wiking-calendar__day__header;
+		background: blue;
 		padding: 10px;
 	}
 
@@ -49,7 +53,7 @@
 		}
 		
 		mwl-calendar-month-cell {
-			background: $wiking-calendar__day;
+			background: green;
 		}
 	}
 }

@@ -59,8 +59,8 @@ export class CalendarComponent implements OnInit {
 		},
 		{
 			"title": "The Flash",
-			"start": new Date(this.time.getFullYear(), this.time.getMonth(), 12),
-			"end": new Date(this.time.getFullYear(), this.time.getMonth(), 12)
+			"start": new Date(this.time.getFullYear(), this.time.getMonth(), 24),
+			"end": new Date(this.time.getFullYear(), this.time.getMonth(), 24)
 		},
 		{
 			"title": "Supernatural",
