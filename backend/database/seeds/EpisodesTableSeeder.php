@@ -1,5 +1,6 @@
 <?php
 
+use App\Ids;
 use App\Shows;
 use App\Episodes;
 
@@ -18,18 +19,23 @@ class EpisodesTableSeeder extends Seeder {
 
         foreach($data->episodes as $episode) {
 
-            $epi = Episodes::create([
-                'episode_title'         => $episode->episode_title,
-                'episode_slug'          => $episode->episode_slug,
-                'episode_imdb_id'       => $episode->episode_imdb_id,
-                'episode_season'        => $episode->episode_season,
-                'episode_number'        => $episode->episode_number,
-                'episode_summary'       => $episode->episode_summary,
-                'episode_air_date'      => $episode->episode_air_date
+            $ids = Ids::create([
+                'wiking'    => $episode->ids->wiking,
+                'tvdb'      => $episode->ids->tvdb,
+                'imdb'      => $episode->ids->imdb
             ]);
 
-            $show = Shows::where('show_slug', $episode->show_slug)->first();
+            $epi = Episodes::create([
+                'season'    => $episode->season,
+                'number'    => $episode->number,
+                'title'     => $episode->title,
+                'slug'      => $episode->slug,
+                'summary'   => $episode->summary,
+                'air_date'  => $episode->air_date,
+                'ids'       => $ids->id
+            ]);
 
+            $show = Shows::where('slug', $episode->show_slug)->first();
             $show->episode()->attach($epi->id);
         }
     }

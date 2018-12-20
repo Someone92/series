@@ -14,17 +14,22 @@ class CreateShowsTable extends Migration {
     public function up() {
         Schema::create('shows', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('show_imdb_id', 70)->unique();
-            $table->string('show_slug', 70)->unique();
-            $table->string('show_title', 70)->index();
-            $table->string('show_summary', 1500);
-            $table->string('show_country', 60);
-            $table->string('show_network', 60);
-            $table->integer('show_year');
-            $table->integer('show_status')->unsigned();
-            $table->timestamps();
+            $table->string('title', 70)->index();
+            $table->string('slug', 70)->index();
 
-            $table->foreign('show_status')->references('id')->on('status');
+            $table->integer('ids')->unsigned();
+            $table->foreign('ids')->references('id')->on('ids');
+
+            $table->string('summary', 1500);
+
+            $table->string('network', 70);
+            $table->date('first_aired');
+            $table->string('airs', 100);
+
+            $table->integer('runtime');
+            $table->string('status', 70);
+
+            $table->timestamps();
         });
     }
 

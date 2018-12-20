@@ -5,7 +5,6 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateEpisodesTable extends Migration {
-
     /**
      * Run the migrations.
      *
@@ -14,15 +13,17 @@ class CreateEpisodesTable extends Migration {
     public function up() {
         Schema::create('episodes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('episode_imdb_id', 70)->unique();
+            $table->integer('season');
+            $table->integer('number');
 
-            $table->integer('episode_season');
-            $table->integer('episode_number');
+            $table->string('title', 70);
+            $table->string('slug', 70);
+            $table->integer('ids')->unsigned();
+            $table->foreign('ids')->references('id')->on('ids');
 
-            $table->string('episode_title', 70);
-            $table->string('episode_slug', 70)->unique();
-            $table->string('episode_summary', 1500);
-            $table->timestamp('episode_air_date')->index();
+            $table->string('summary', 1500);
+            $table->date('air_date');
+
             $table->timestamps();
         });
     }

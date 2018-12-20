@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateStatusTable extends Migration {
+class CreateIdsTable extends Migration {
 
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreateStatusTable extends Migration {
      * @return void
      */
     public function up() {
-        Schema::create('status', function (Blueprint $table) {
+        Schema::create('ids', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('status_name', 60)->unique();
-            $table->string('status_slug', 60)->unique();
+            $table->string('wiking', 20)->nullable();
+            $table->string('tvdb', 20)->nullable();
+            $table->string('imdb', 20)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -25,8 +27,6 @@ class CreateStatusTable extends Migration {
      * @return void
      */
     public function down() {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Schema::dropIfExists('status');
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        Schema::dropIfExists('ids');
     }
 }

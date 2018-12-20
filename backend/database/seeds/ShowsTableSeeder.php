@@ -1,5 +1,6 @@
 <?php
 
+use App\Ids;
 use App\Shows;
 use App\Status;
 use App\Genres;
@@ -17,23 +18,32 @@ class ShowsTableSeeder extends Seeder {
         $data = json_decode($json);
 
         foreach($data->shows as $show) {
-            $status = Status::where('status_slug', $show->show_status)->first();
+
+            $ids = Ids::create([
+                'wiking'    => $show->ids->wiking,
+                'tvdb'      => $show->ids->tvdb,
+                'imdb'      => $show->ids->imdb
+            ]);
 
             $shows = Shows::create([
-                'show_title'     => $show->show_title,
-                'show_slug'      => $show->show_slug,
-                'show_imdb_id'   => $show->show_imdb_id,
-                'show_summary'   => $show->show_summary,
-                'show_country'   => $show->show_country,
-                'show_network'   => $show->show_network,
-                'show_year'      => $show->show_year,
-                'show_status'    => $status->id
+                'title'         => $show->title,
+                'slug'          => $show->slug,
+                'summary'       => $show->summary,
+                'network'       => $show->network,
+                'status'        => $show->status,
+                'runtime'       => $show->runtime,
+                'first_aired'   => $show->first_aired,
+                'airs'          => $show->airs,
+                'ids'           => $ids->id
             ]);
+
+            
             // Attach genres
-            foreach($show->show_genres as $genre) {
-                $full = Genres::where('genre_slug', $genre->genre_slug)->first();
+            foreach($show->genres as $genre) {
+                $full = Genres::where('genre_slug', $genre)->first();
                 $shows->genre()->attach($full->id);
             }
         }
     }
 }
+
