@@ -3,6 +3,8 @@
 .calendar__week {
 	
 	&--header {
+		border-bottom: solid 1px #2d2d2d;
+		border-right: solid 1px #2d2d2d;
 		background: $calendar__week--header-color;
 		padding: 7px 0;
 		display: grid;
@@ -11,10 +13,10 @@
 			"a b"
 			"a c";
 
-		grid-template-columns: 50px auto auto;
+		grid-template-columns: 40px auto auto;
 
 		&.cal-weekend {
-			color: $calendar__week--weekend-color;
+			//color: $calendar__week--weekend-color;
 		}
 		
 		&.cal-today {
@@ -27,19 +29,24 @@
 		grid-area: a;
 		align-self: center;
 		text-align: center;
-		font-size: 1.5em;
+		font-size: 2rem;
 		font-weight: bold;
+	}
+
+	&--month,
+	&--day {
+		text-indent: 5px;
 	}
 
 	&--month {
 		grid-area: b;
-		font-size: .8rem;
+		font-size: 1rem;
+		font-weight: bold;
 	}
 
 	&--day {
 		grid-area: c;
 		font-size: 1rem;
-		font-weight: bold;
 	}
 
 	&--events {

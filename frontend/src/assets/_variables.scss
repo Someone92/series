@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Merriweather:300,300i,400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
 @import "colors";
 
 /* * * * * * *
@@ -63,7 +63,7 @@ $header__text-color: wiking-color(accent, base);
 // Footer //
 ////////////
 $footer-color: $header-color;
-$footer__border-color: darken($footer-color, 3%);
+$footer__search-color: wiking-color(accent, darker);
 $footer__text-color: $header__logo-color;
 $footer__anchor-color: $header__text-color;
 $footer__anchor--hover-color: darken($footer__anchor-color, 7%);
@@ -72,16 +72,16 @@ $footer__anchor--hover-color: darken($footer__anchor-color, 7%);
 // Calendar //
 //////////////
 // Toolbar
-$calendar__sidebar-color: #2c2c2c;
+$calendar__sidebar-color: #1d1d1d;
 $calendar__sidebar--border-color: #404040;
 
 // week-view
-$calendar__week--header-color: #2c2c2c;
-$calendar__week--text-color: rgba(255, 255, 255, 0.43);
+$calendar__week--header-color: #2a2a2a;
+$calendar__week--text-color: #ffffff;
 //$calendar__week--events-color: wiking-color(primary, lighter);
 $calendar__week--events-color: #404040;
 
-$calendar__week--today-color: wiking-color(success);
+$calendar__week--today-color: #ed1c24;
 $calendar__week--weekend-color: wiking-color(danger);
 // month-view
 
@@ -95,5 +95,4 @@ $calendar__week--weekend-color: wiking-color(danger);
  * Font-variables  *
  * * * * * * * * * */
 $font-size: 14px;
-$font-family-heading: 'Lora', serif;
-$font-family-body: 'Merriweather', serif;
+$font-family-body: "open sans";
