@@ -73,13 +73,13 @@ $footer__anchor--hover-color: darken($footer__anchor-color, 7%);
 //////////////
 // Toolbar
 $calendar__sidebar-color: #1d1d1d;
-$calendar__sidebar--border-color: #404040;
+$calendar__sidebar--border-color: #2a2a2a;
 
 // week-view
-$calendar__week--header-color: #2a2a2a;
+$calendar__week--header-color: #404040;
 $calendar__week--text-color: #ffffff;
 //$calendar__week--events-color: wiking-color(primary, lighter);
-$calendar__week--events-color: #404040;
+$calendar__week--events-color: #2a2a2a;
 
 $calendar__week--today-color: #ed1c24;
 $calendar__week--weekend-color: wiking-color(danger);
