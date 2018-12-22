@@ -20,7 +20,10 @@ import { Component, Input } from '@angular/core';
 			<div class="calendar__week--events">
 				<ng-container *ngFor="let event of events">
 					<div class="calendar__week--event" *ngIf="compareEventDay(event.start, day)">
+						<b>{{ event.show_title }}</b>
 						{{ event.title }}
+						S{{ event.season }}
+						E{{ event.number }}
 					</div>
 				</ng-container>
 			</div>
@@ -42,7 +45,6 @@ export class CalendarWeekViewComponent {
 	// [class.cal-weekend]="day.isWeekend"
 
 	days: any;
-	constructor() { }
 	ngOnChanges() {
 		this.days = this.getFullWeek(this.viewDate);
 	}

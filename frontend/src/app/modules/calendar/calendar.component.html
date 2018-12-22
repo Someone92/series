@@ -22,44 +22,27 @@
 	<div class="cal-events" *ngIf="day.events.length > 0">
 		<div style="display:inline-block;width:100%;line-height:normal"
 		*ngFor="let event of day.events">
+			<b>{{ event.show_title }}</b>
 			{{ event.title }}
+			S{{ event.season }}
+			E{{ event.number }}
 		</div>
 	</div>
 </ng-template>
 
 
+<div class="calendar" *ngIf="events$ | async; else loading; let events">
 
-<ng-template
-	#weekTemplate>
-	<div class="calendar--week">
-		THIS IS ME
-		<!--<mwl-calendar-week-view-header>test</mwl-calendar-week-view-header>-->
-		
-		<div *ngFor="let eventRow of view.allDayEventRows">
-			hej
-			<div *ngFor="let allDayEvent of eventRow.row">
-				TESTING
-			</div>
-		</div>
-
-
-		<div *ngFor="let day of days">
-			{{ day.title }}sadasdas
-		</div>
-
-	</div>
-</ng-template>
-
-
-<div class="calendar" >
 	<div class="calendar__sidebar">
 		<app-calendar-toolbar
 			[(view)]=view
+			(viewDateChange)="viewDateChangedHandler($event)"
 			[(viewDate)]="viewDate">
 		</app-calendar-toolbar>
 	</div>
 
 	<div class="calendar__main" [ngSwitch]="view">
+
 		<mwl-calendar-month-view
 			*ngSwitchCase="CalendarView.Month"
 			[weekStartsOn]="1"
@@ -75,13 +58,5 @@
 			[events]="events">
 		</app-calendar-week-view>
 
-		<!--
-		<mwl-calendar-week-view
-			*ngSwitchCase="CalendarView.Week"
-			[viewDate]="viewDate"
-			[events]="events"
-			[eventTemplate]="weekTemplate">
-		</mwl-calendar-week-view>
-		-->
 	</div>
 </div>
