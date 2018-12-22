@@ -21,7 +21,10 @@ class CreateEpisodesTable extends Migration {
             $table->integer('ids')->unsigned();
             $table->foreign('ids')->references('id')->on('ids');
 
-            $table->string('summary', 1500);
+            $table->string('summary', 1500)->nullable();
+            $table->string('country', 70)->nullable();
+            $table->string('language', 70)->nullable();
+            $table->integer('runtime')->nullable();
             $table->date('air_date');
 
             $table->timestamps();

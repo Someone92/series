@@ -14,9 +14,10 @@ class CreateIdsTable extends Migration {
     public function up() {
         Schema::create('ids', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('wiking', 20)->nullable();
-            $table->string('tvdb', 20)->nullable();
-            $table->string('imdb', 20)->nullable();
+            $table->string('wiking', 50)->nullable();
+            $table->string('imdb', 50)->nullable();
+            $table->string('tmdb', 50)->nullable();
+            $table->string('tvdb', 50)->nullable();
             $table->timestamps();
         });
     }
