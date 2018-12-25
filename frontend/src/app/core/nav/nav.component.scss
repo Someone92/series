@@ -4,19 +4,19 @@
 header {
 	background: $header-color;
 	height: 60px;
+	color: $header__text-color;
 
 	nav {
 		max-width: 98%;
 		margin: 0 auto;
 		display: grid;
-		grid-template: 60px / 250px 250px auto;
+		grid-template: 60px / 280px 250px auto;
 		align-items: center;
-		color: $header__text-color;
 
 		.logo a {
 			font-size: 1.5rem;
 			font-weight: 700;
-			color: $header__logo-color
+			color: inherit;
 		}
 
 		.search {
@@ -55,7 +55,6 @@ header {
 				&::placeholder {
 					text-transform: capitalize;
 					font-style: italic;
-					color: $header__search-placeholder-color
 				}
 
 				&::-webkit-search-decoration,

@@ -3,8 +3,6 @@
 .calendar__week {
 	
 	&--header {
-		border-bottom: solid 1px #2d2d2d;
-		border-right: solid 1px #2d2d2d;
 		background: $calendar__week--header-color;
 		padding: 7px 0;
 		display: grid;

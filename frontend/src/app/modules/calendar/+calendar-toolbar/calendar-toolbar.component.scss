@@ -6,8 +6,16 @@
 	border-radius: 20px;
 	width: 100%;
 	display: grid;
-	grid-template-rows: 30px 45px 30px;
+	grid-template-rows: auto 30px 45px 30px;
 
+	&::before {
+		content: '';
+		border-top: 1px solid #404040;
+		display: block;
+		text-align: center;
+		margin: 0 auto;
+		width: 260px;
+	}
 	span {
 		cursor: pointer;
 		display: flex;

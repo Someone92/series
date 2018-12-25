@@ -53,18 +53,16 @@ $info-color: wiking-color(info);
 ////////////////
 // Navigation //
 ////////////////
-$header-color: wiking-color(primary, darker);
-$header__logo-color: lighten(wiking-color(primary, lighter), 30%);
+$header-color: #1d1a1a;
+$header__text-color: #43a047;
+
 $header__search-color: lighten($header-color, 5%);
-$header__search-placeholder-color: lighten(wiking-color(primary, lighter), 15%);
-$header__text-color: wiking-color(accent, base);
 
 ////////////
 // Footer //
 ////////////
 $footer-color: $header-color;
-$footer__search-color: wiking-color(accent, darker);
-$footer__text-color: $header__logo-color;
+$footer__search-color: $header__text-color;
 $footer__anchor-color: $header__text-color;
 $footer__anchor--hover-color: darken($footer__anchor-color, 7%);
 
@@ -72,13 +70,11 @@ $footer__anchor--hover-color: darken($footer__anchor-color, 7%);
 // Calendar //
 //////////////
 // Toolbar
-$calendar__sidebar-color: #1d1d1d;
-$calendar__sidebar--border-color: #2a2a2a;
+$calendar__sidebar-color: $header-color;
 
 // week-view
 $calendar__week--header-color: #404040;
 $calendar__week--text-color: #ffffff;
-//$calendar__week--events-color: wiking-color(primary, lighter);
 $calendar__week--events-color: #2a2a2a;
 
 $calendar__week--today-color: #ed1c24;

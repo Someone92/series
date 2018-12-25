@@ -13,13 +13,12 @@ footer {
 	display: grid;
 
 	.copy {
-		color: $footer--text-color;
 		font-size: 0.9rem;
 		margin: 10px 0;
 		align-self: center;
-
+		color: white;
 		a {
-			color: $header--text-color;
+			color: $header__text-color;
 			cursor: pointer;
 			display: inline-block;
 			transition: color .2s ease-in-out;
