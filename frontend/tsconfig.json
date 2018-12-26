@@ -6,6 +6,7 @@
 
     "paths": {
       "@core/*": ["app/core/*"],
+      "@layouts/*": ["app/layouts/*"],
       "@modules/*": ["app/modules/*"],
       "@services/*": ["app/services/*"]
     },

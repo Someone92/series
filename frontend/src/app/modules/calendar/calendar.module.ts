@@ -1,25 +1,26 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-
+import { Routes, RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-/* * * * * *
- * Vendors *
- * * * * * */
-// Angular-Calendar
+/* * * * * * * * * * *
+ * Vendor-components *
+ * * * * * * * * * * */
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-
-// FontAwesome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-/* * * * * * * * * * * *
- * Individual-mponents *
- * * * * * * * * * * * */
+/* * * * * * * * * *
+ * Core-Components *
+ * * * * * * * * * */
+
+/* * * * * * * * * *
+ * Self-components *
+ * * * * * * * * * */
 import { CalendarComponent } from './calendar.component';
 import { CalendarToolbarComponent } from './+calendar-toolbar/calendar-toolbar.component';
 import { CalendarWeekViewComponent } from './+calendar-week-view/calendar-week-view.component';
+
 
 const routes: Routes = [
 	{ path: "", component: CalendarComponent }
@@ -31,8 +32,8 @@ const routes: Routes = [
 		CalendarWeekViewComponent
 	],
 	imports: [
-		RouterModule.forChild(routes),
 		CommonModule,
+		RouterModule.forChild(routes),
 		HttpClientModule,
 		CalendarModule.forRoot({
 			provide: DateAdapter,

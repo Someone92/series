@@ -5,31 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-/* * * * * *
- * Vendors *
- * * * * * */
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-/* * * * * * * * * *
- * Core-components *
- * * * * * * * * * */
-import { NavComponent } from '@core/nav/nav.component';
-import { FooterComponent } from '@core/footer/footer.component';
-
-/* * * * * * * * * * * * *
- * Individual-components *
- * * * * * * * * * * * * */
-
 @NgModule({
 	declarations: [
-		AppComponent,
-		NavComponent,
-		FooterComponent
+		AppComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		FontAwesomeModule,
 		HttpClientModule
 	],
 	providers: [],
