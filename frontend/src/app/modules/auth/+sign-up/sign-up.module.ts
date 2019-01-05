@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 /* * * * * * * * * * *
  * Vendor-components *
  * * * * * * * * * * */
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 /* * * * * * * * * *
  * Core-Components *
@@ -13,21 +14,22 @@ import { Routes, RouterModule } from '@angular/router';
 /* * * * * * * * * *
  * Self-components *
  * * * * * * * * * */
-import { SignInComponent } from './sign-in.component';
+import { SignUpComponent } from './sign-up.component';
 
 const routes: Routes = [
-	{ path: "", component: SignInComponent }
+	{ path: "", component: SignUpComponent }
 ];
 @NgModule({
 	declarations: [
-		SignInComponent
+		SignUpComponent
 	],
 	imports: [
 		CommonModule,
-		RouterModule.forChild(routes)
+		RouterModule.forChild(routes),
+		FontAwesomeModule
 	],
 	exports: [
 		RouterModule
 	]
 })
-export class SignInModule { }
+export class SignUpModule { }

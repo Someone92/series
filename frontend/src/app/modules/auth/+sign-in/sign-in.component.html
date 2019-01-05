@@ -1,0 +1,20 @@
+<div class="auth__content">
+	<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+		<div class="field">
+			<fa-icon [icon]="email"></fa-icon>
+			<input type="email" placeholder="Email" formControlName="email">
+		</div>
+		<div class="field">
+			<fa-icon [icon]="password"></fa-icon>
+			<input type="password" placeholder="Password" formControlName="password">
+			<a class="forgot" routerLink="/auth/forgot">forgot?</a>
+		</div>
+		<div class="field">
+			<button>Sign In</button>
+		</div>
+	</form>
+</div>
+
+<div class="auth__bottom">
+	<p>New to Wiking? <a routerLink="/auth/signup">Join now</a></p>
+</div>

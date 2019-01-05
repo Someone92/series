@@ -10,7 +10,8 @@
 		</div>
 
 		<ul>
-			<li><a routerLink="/auth/signin">Sign-in</a></li>
+			<li *ngIf="!(isLoggedIn$ | async)"><a routerLink="/auth/signin">Sign-in</a></li>
+			<li *ngIf="isLoggedIn$ | async"><a routerLink="/auth/signin">Logout</a></li>
 		</ul>
 	</nav>
 </header>

@@ -19,3 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('all/shows/{date}', 'showsController@monthRange');
+
+
+Route::post('login', 'AuthController@login');

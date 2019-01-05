@@ -32,7 +32,7 @@ import { CalendarView } from 'angular-calendar';
 	`,
 	styleUrls: ['./calendar-toolbar.component.scss']
 })
-export class CalendarToolbarComponent {
+export class CalendarToolbarComponent implements OnInit {
 	/**
 	 * The current view
 	 */

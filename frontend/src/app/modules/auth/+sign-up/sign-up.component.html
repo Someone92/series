@@ -1,0 +1,23 @@
+<div class="auth__content">
+	<form>
+		<div class="field">
+			<fa-icon [icon]="name"></fa-icon>
+			<input type="text" placeholder="Name">
+		</div>
+		<div class="field">
+			<fa-icon [icon]="email"></fa-icon>
+			<input type="email" placeholder="Email">
+		</div>
+		<div class="field">
+			<fa-icon [icon]="password"></fa-icon>
+			<input type="password" placeholder="Password">
+		</div>
+		<div class="field">
+			<button>Sign In</button>
+		</div>
+	</form>
+</div>
+
+<div class="auth__bottom">
+	<p>Already a member? <a routerLink="/auth/signin">Sign in now</a></p>
+</div>

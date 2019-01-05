@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { Routes, RouterModule } from "@angular/router";
 
 /* * * * * * * * * * *
@@ -12,13 +13,10 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { NavComponent } from "@core/nav/nav.component";
 import { FooterComponent } from "@core/footer/footer.component";
 
-
 /* * * * * * * * * *
  * Self-components *
  * * * * * * * * * */
 import { MainComponent } from "./main.component";
-
-
 
 export const routes: Routes = [
 	{ path: '', component: MainComponent, children: [
@@ -33,7 +31,8 @@ export const routes: Routes = [
 	],
 	imports: [
 		RouterModule.forChild(routes),
-		FontAwesomeModule
+		FontAwesomeModule,
+		CommonModule
 	],
 	exports: [
 		RouterModule

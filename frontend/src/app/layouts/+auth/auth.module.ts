@@ -14,12 +14,12 @@ import { Routes, RouterModule } from "@angular/router";
  * * * * * * * * * */
 import { AuthComponent } from "./auth.component";
 
-
-
 export const routes: Routes = [
 	{ path: '', redirectTo: 'signin' },
 	{ path: '', component: AuthComponent, children: [
-		{ path: 'signin', loadChildren: '@core/auth/+sign-in/sign-in.module#SignInModule' }
+		{ path: 'signin', loadChildren: '@modules/auth/+sign-in/sign-in.module#SignInModule' },
+		{ path: 'signup', loadChildren: '@modules/auth/+sign-up/sign-up.module#SignUpModule' },
+		{ path: 'forgot', loadChildren: '@modules/auth/+forgot/forgot.module#ForgotModule' }
 	]}
 ];
 @NgModule({
